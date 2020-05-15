@@ -14,19 +14,19 @@ import { takeEvery, put } from 'redux-saga/effects';
 
 // Create the rootSaga generator function
 function* rootSaga() {
+    yield takeEvery('GET_MOVIES', getMovies)
 
 }
 
-
-function* fetchMovies(action){
-    console.log('in fetchMovies', action);
-    try{
-        const response = yield axios.get('/movies');
-        console.log('in fetchMovies', response.data);
-        yield put({type: 'SET_MOVIES', payload: response.data})
-    } catch(err){
-        console.log(err);
-        alert('response getting movies')
+//SAGA to GET movies
+function* getMovies() {
+    try {
+        const response = yield axios.get('/movie');
+        yield put({ type: 'SET_MOVIES', payload: response.data })
+    }
+    catch(error){
+        console.log('ERROR in GET', error);
+        
     }
 }
 // Create sagaMiddleware
@@ -65,6 +65,6 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>,
     document.getElementById('root'));
 registerServiceWorker();
