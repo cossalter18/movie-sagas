@@ -6,6 +6,7 @@ import { HashRouter, Route, Link } from 'react-router-dom'
 //import components for HashRouter
 import Info from '../Info/Info'
 import MovieList from '../MovieList/MovieList';
+import EditPage from '../EditPage/EditPage'
 
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
         <div className="App">
           <Route exact path="/" component={MovieList} />
           <Route path="/info/:id" render={({ match }) => <Info match={match} />} />
+          <Route path="/edit" component={EditPage}/>
           {/* <Route path="Info/:id" render={(props) => <Info {...props} dispatch={this.props.dispatch} reduxState={this.props.reduxState} />}></Route> */}
         </div>
       </HashRouter>

@@ -14,6 +14,11 @@ class Info extends Component {
         // console.log("handle click info button");
         this.props.history.push('/')
     }
+
+    handleEdit = () => {
+        console.log('button clicked in handle edit');
+        this.props.history.push('/edit')
+    }
    
 
     getDetails = () =>{
@@ -26,6 +31,7 @@ class Info extends Component {
             <div className="info">
                 <h2>Info</h2>
                 <button onClick={this.handleClick}>Back to Movies</button>
+                <button onClick={this.handleEdit}>Edit</button>
                 {this.props.reduxState.details.map((movie) => {
                     return (
                         <div key={movie.id}>

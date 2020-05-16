@@ -27,7 +27,7 @@ class App extends Component {
    
     handleAdmin=()=> {
         console.log('button clicked in handle admin');
-        
+        this.props.history.push('/admin')
     }
     handleClick = (id) => {
         //console.log('in handleClick of Posters')
@@ -40,10 +40,9 @@ class App extends Component {
         return (
             <div className="App'">
                 <header className="header'">
-                    <button onClick={this.handleAdmin}>Admin</button>
                 <h1 align='center'>Welcome To Lackluster Video</h1>
                 </header>
-                <GridList cellHeight={"auto"} cols={5}>
+                <GridList cellHeight={"auto"} spacing={10} cols={5}>
                    
                     {this.props.reduxState.movies.map((movie) => (
                         <GridListTile key={movie.id} cols={movie.cols || 1}>
