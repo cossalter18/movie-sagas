@@ -13,13 +13,7 @@ class MovieList extends Component{
     render(){
         return(
            <div>
-               <ul>
-                 {this.props.movieItem.map((movieItem) =>{
-                     return(
-                         <MovieItem movieItem={movieItem} reduxState={this.props.reduxState}/>
-                     )
-                 })}
-               </ul>
+              <h2>MOVIELIST.JSX</h2>
            </div>
         )//end return
     }// end render

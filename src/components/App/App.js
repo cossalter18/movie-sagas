@@ -6,28 +6,33 @@ import MovieItem from '../MovieItem/MovieItem'
 class App extends Component {
   // Renders the entire app on the DOM
 
-  componentDidMount(){
+  componentDidMount() {
     console.log('APP.JS');
-    this.props.dispatch({type: 'GET_MOVIES'});
-    this.props.dispatch({type: 'GET GENRES'})
+    this.getMovies()
+    //this.props.dispatch({type: 'GET GENRES'})
   }
 
-  
+  getMovies = () => {
+    this.props.dispatch({ type: "GET_MOVIES" })
+  }
+
+  handleClick=()=>{
+    console.log('in handleClick of Posters')
+  }
+
   render() {
-  const movieListArray = this.props.reduxState.movies.map((movieItem, index)=>{
-    return(
-      <MovieItem movieItem={movieItem} key={index}></MovieItem>
-    )
-  })
-   
-    
-      return(
-        <div>
-          <h2>test</h2>
-          <div>
-         {movieListArray}
-          </div>
-          <MovieItem/>
+    return (
+      <div className="App'">
+        <h1>movie sagas</h1>
+        {this.props.reduxState.movies.map((movie)=>{
+          return(
+            <>
+            <p>{movie.title}</p>
+            <img src={movie.poster} alt={movie.title} onClick={this.handleClick(movie.id)}/>
+            </>
+          )
+        })}
+        <h2>test</h2>
         </div>
     );
   }

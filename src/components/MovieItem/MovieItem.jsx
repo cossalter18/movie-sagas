@@ -9,11 +9,10 @@ class MovieItem extends Component {
     }
 
     render() {
-        console.log("MOVIE ITEM------------------------------->>>>>", this.props.reduxState)
-        const title= this.props.reduxState.title
+      
         return (
             <div>
-               <p>{JSON.stringify(this.props.movieItem)}</p>
+             <h2>MOVIEITEM.JSX</h2>
             </div>
             
                
