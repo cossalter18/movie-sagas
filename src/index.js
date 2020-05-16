@@ -16,6 +16,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies)
     yield takeEvery('GET_DETAILS', getDetails)
+    yield takeEvery('UPDATE_MOVIE', updateMovie)
 
 }
 
@@ -37,6 +38,14 @@ function* getDetails(action) {
     } catch (err) {
         console.log(err);
     }
+}
+
+function* updateMovie(action){
+    try{
+        yield axios.put('/movie', action.payload)
+    }catch (error){
+    console.log(error);
+}
 }
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware(rootSaga);

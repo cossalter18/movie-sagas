@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router'
-import autosize from 'autosize'
 
 class Edit extends Component {
 
-    componentDidMount(){
-        this.textarea.focus();
-        autosize(this.textarea)
+    state={
+        movie:{
+            id: '',
+            title: '',
+            description: ''
+        }
     }
 
+    handleChange=(event, propertyName) => {
+        this.setState({
+            movie: {
+                ...this.state.movie,
+                [propertyName]: event.target.value
+            }
+        })
+    }
+   
 handleClick =()=>{
     this.props.history.push('/')
 }
@@ -18,8 +29,13 @@ handleCancel=()=>{
     this.props.history.push('/')
 }
 
-handleSubmit = () => {
-    console.log('clicked handleSubmit')
+handleUpdate = () => {
+    console.log('clicked handleUpdate')
+    this.props.dispatch({type: 'UPDATE_MOVIE', payload: this.state.movie})
+    this.setState({
+        state: this.state
+    })
+    this.props.history.push(`/edit/${this.props.match.params.id}`)
 }
     render() {
         return (
@@ -39,13 +55,13 @@ handleSubmit = () => {
                 } 
             </div>
         
-            <input type="text" placeholder="Update Title"></input>
+            <input type="text" placeholder="Update Title" value={this.state.movie.title} onChange={(event) => this.handleChange(event, "title")}></input>
             <br/>
             <br/>
-            <textarea placeholder="Update Movie Synopsis"></textarea>
+            <textarea placeholder="Update Movie Synopsis" value={this.state.movie.description} onChange={(event) => this.handleChange(event, "description")}></textarea>
             <br/>
             <button onClick={this.handleCancel}>Cancel</button>
-            <button onClick={this.handleSubmit}>Submit</button>
+            <button onClick={this.handleUpdate}>Submit</button>
             </>
 
 

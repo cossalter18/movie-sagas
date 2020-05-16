@@ -15,7 +15,7 @@ class Info extends Component {
         this.props.history.push('/')
     }
 
-    handleEdit = () => {
+    handleEdit = (id) => {
         console.log('button clicked in handle edit');
         this.props.history.push('/edit')
     }
