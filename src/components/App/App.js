@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import MovieItem from '../MovieItem/MovieItem'
+import MovieList from '../MovieList/MovieList';
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -32,7 +33,8 @@ class App extends Component {
             </>
           )
         })}
-        <h2>test</h2>
+        <MovieList/>
+        <MovieItem />
         </div>
     );
   }
