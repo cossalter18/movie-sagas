@@ -16,6 +16,18 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/info/:id', (req, res) =>{
+    const queryText = `SELECT * FROM "movies" WHERE "id" =$1;`;
+    pool.query(queryText, [req.params.id])
+    .then((result)=>{
+        console.log('GET DETAILS:', req.params.id );
+        res.send(result.rows);
+    }).catch((error) => {
+        res.sendStatus(500)
+        console.log(error)
+    })
+})
+
 
 
 
