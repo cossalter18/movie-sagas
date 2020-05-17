@@ -8,7 +8,8 @@ class Info extends Component {
     //used to fire the get details function
     componentDidMount() {
         console.log('in Info COMPONENTDIDMOUT');
-        this.getDetails()
+        this.getDetails();
+        //this.getIdGenres();
     }
 
     //take us back to MovieList page
@@ -27,6 +28,12 @@ class Info extends Component {
         console.log("IN GET DETAILS INFO.JSX", this.props.match.params.id)
         this.props.dispatch({type:'GET_DETAILS', payload: this.props.match.params.id})
     }
+
+    // getIdGenres(){
+    //     console.log("in GENRE ID GET");
+    //     this.props.dispatch({type:'SPEC_GENRES' ,payload: this.props.match.params.id})
+        
+    // }
 
     render() {
         return (
@@ -53,11 +60,6 @@ class Info extends Component {
                    )
                })}
             </div>
-
-
-
-
-
         )//end return
     }// end render
 };// end component
