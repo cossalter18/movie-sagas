@@ -37,7 +37,6 @@ function* getGenre(){
         const response = yield axios.get('/genres');
         yield put({type: 'SET_GENRES', payload: response.data})
         console.log("GET GENRE RESPONSE:", response);
-        
     }
     catch(error){
         console.log('Error in GENRE GET', error)

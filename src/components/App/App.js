@@ -18,7 +18,7 @@ class App extends Component {
       <HashRouter>
         <div className="App">
           <Route exact path="/" component={MovieList} />
-          <Route path="/info/:id" render={({ match }) => <Info match={match} />} />
+          <Route path="/info/:id" render={({ item }) => <Info item={item} />} />
           <Route path="/edit" component={EditPage}/>
           {/* <Route path="Info/:id" render={(props) => <Info {...props} dispatch={this.props.dispatch} reduxState={this.props.reduxState} />}></Route> */}
         </div>

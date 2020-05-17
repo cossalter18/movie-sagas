@@ -45,6 +45,8 @@ class Info extends Component {
                         </div>
                     )
                 })}
+                <h3>Genres:</h3>
+                <p>{this.props.reduxState.genres}</p>
             </div>
 
 
