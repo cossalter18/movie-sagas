@@ -35,17 +35,21 @@ function* getDetails(action) {
     try {
         const response = yield axios.get(`/movie/info/${action.payload}`)
         yield put({ type: 'SET_DETAILS', payload: response.data })
+        //SEND DATA
     } catch (err) {
         console.log(err);
     }
 }
 
-function* updateMovie(action){
-    try{
-        yield axios.put('/movie', action.payload)
-    }catch (error){
-    console.log(error);
-}
+function* updateMovie(action) {
+    console.log('UpdateMovie', action.payload.id);
+    try {
+        const response = yield axios.put(`/movie/${action.payload.id}`)
+        console.log('in updateMovie PUT', response);
+        //yield put({type: 'SET_MOVIES', payload: response.data})
+    } catch (error) {
+        console.log(error);
+    }
 }
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware(rootSaga);

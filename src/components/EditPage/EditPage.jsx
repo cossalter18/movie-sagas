@@ -12,11 +12,13 @@ class Edit extends Component {
         }
     }
 
-    handleChange=(event, propertyName) => {
+    handleChange=(event) => {
+        console.log('IN HANDLECHANGE');
+        
         this.setState({
             movie: {
                 ...this.state.movie,
-                [propertyName]: event.target.value
+              [event.target.name]: event.target.value
             }
         })
     }
@@ -35,7 +37,7 @@ handleUpdate = () => {
     this.setState({
         state: this.state
     })
-    this.props.history.push(`/edit/${this.props.match.params.id}`)
+    this.props.history.push(`/`)
 }
     render() {
         return (
@@ -55,10 +57,10 @@ handleUpdate = () => {
                 } 
             </div>
         
-            <input type="text" placeholder="Update Title" value={this.state.movie.title} onChange={(event) => this.handleChange(event, "title")}></input>
+            <input type="text" placeholder="Update Title" name="title" onChange={(event) => this.handleChange(event, "title")}></input>
             <br/>
             <br/>
-            <textarea placeholder="Update Movie Synopsis" value={this.state.movie.description} onChange={(event) => this.handleChange(event, "description")}></textarea>
+            <textarea placeholder="Update Movie Synopsis" name="title" onChange={(event) => this.handleChange(event, "description")}></textarea>
             <br/>
             <button onClick={this.handleCancel}>Cancel</button>
             <button onClick={this.handleUpdate}>Submit</button>
