@@ -45,8 +45,13 @@ class Info extends Component {
                         </div>
                     )
                 })}
+                {/* need to display only ones asigned to ids */}
                 <h3>Genres:</h3>
-                <p>{this.props.reduxState.genres}</p>
+               {this.props.reduxState.genres.map((genre, i)=>{
+                   return(
+                       <p>{genre.name}</p>
+                   )
+               })}
             </div>
 
 

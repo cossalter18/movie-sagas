@@ -11,11 +11,22 @@ router.get('/', (req, res) => {
             res.send(result.rows)
         })
         .catch((error) => {
-            console.log('ERROR completing movie query', err);
+            console.log('ERROR completing GENRE query', err);
             res.sendStatus(500)
         })
 })
 
+router.get("/", (req, res) => {
+    const queryText = `SELECT * FROM "movie_genre"`
+    pool.query(queryText)
+    .then((result) => {
+        res.send(result.rows)
+    })
+    .catch((error) => {
+        console.log('ERROR COMPLETING COMBINED GENRES', error);
+        
+    })
+})
 
 
 
