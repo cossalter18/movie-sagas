@@ -30,8 +30,8 @@ router.get('/info/:id', (req, res) =>{
 
 
 //PUT
-
-router.put('/movies/:id', (req, res) =>{
+//error in this PUT, need to troubleshoot
+router.put('/', (req, res) =>{
     const queryText = `UPDATE "movies" SET "title" = $1, "description" = $2 WHERE "id" = $3;`;
     pool.query(queryText, [req.body.title, req.body.description, req.params.id])
     .then((result) => {

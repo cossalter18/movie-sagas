@@ -18,7 +18,8 @@ class Edit extends Component {
         this.setState({
             movie: {
                 ...this.state.movie,
-                [event.target.name]: event.target.value
+                [event.target.title]: event.target.value,
+                [event.target.description]: event.target.value
             }
         })
     }
@@ -59,7 +60,7 @@ class Edit extends Component {
                 <input type="text" placeholder="Update Title" name="title" onChange={(event) => this.handleChange(event, "title")}></input>
                 <br />
                 <br />
-                <textarea placeholder="Update Movie Synopsis" name="title" onChange={(event) => this.handleChange(event, "description")}></textarea>
+                <textarea placeholder="Update Movie Synopsis" name="description" onChange={(event) => this.handleChange(event, "description")}></textarea>
                 <br />
                 <button onClick={this.handleCancel}>Cancel</button>
                 <button onClick={this.handleUpdate}>Submit</button>

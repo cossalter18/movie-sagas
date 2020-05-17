@@ -47,7 +47,6 @@ function* getDetails(action) {
     try {
         const response = yield axios.get(`/movie/info/${action.payload}`)
         yield put({ type: 'SET_DETAILS', payload: response.data })
-        //SEND DATA
     } catch (err) {
         console.log(err);
     }
@@ -56,7 +55,7 @@ function* getDetails(action) {
 function* updateMovie(action) {
     console.log('UpdateMovie', action.payload.id);
     try {
-        const response = yield axios.put(`/movies/${action.payload.id}`, {title: action.payload.title, description: action.payload.description})
+        const response = yield axios.put(`/movie/${action.payload.id}`, {title: action.payload.title, description: action.payload.description})
         console.log('in updateMovie PUT', response);
         //yield put({type: 'SET_MOVIES', payload: response.data})
     } catch (error) {
