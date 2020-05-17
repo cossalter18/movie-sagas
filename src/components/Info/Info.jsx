@@ -19,7 +19,7 @@ class Info extends Component {
     }
     //takes us to the movie edit page
     handleEdit = (id) => {
-        console.log('button clicked in handle edit');
+        console.log('button clicked in handle edit', id);
         this.props.history.push('/edit')
     }
    

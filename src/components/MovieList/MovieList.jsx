@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-
 import GridList from '@material-ui/core/GridList'
 import GridListTile from '@material-ui/core/GridListTile'
-// import { HashRouter, Route, Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 
 
