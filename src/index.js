@@ -17,6 +17,7 @@ function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies)
     yield takeEvery('GET_DETAILS', getDetails)
     yield takeEvery('UPDATE_MOVIE', updateMovie)
+    yield takeEvery('GET_GENRE', getGenre)
 
 }
 
@@ -28,6 +29,16 @@ function* getMovies() {
     }
     catch (error) {
         console.log('ERROR in GET', error);
+    }
+}
+
+function* getGenre(){
+    try{
+        const response = yield axios.get('movie');
+        yield put({type: 'SET_GENRE', payload: response.data})
+    }
+    catch(error){
+        console.log('Error in GENRE GET', error)
     }
 }
 
@@ -44,7 +55,7 @@ function* getDetails(action) {
 function* updateMovie(action) {
     console.log('UpdateMovie', action.payload.id);
     try {
-        const response = yield axios.put(`/movie/${action.payload.id}`)
+        const response = yield axios.put(`/movie/${action.payload.id}`, {title: action.payload.title, description: action.payload.description})
         console.log('in updateMovie PUT', response);
         //yield put({type: 'SET_MOVIES', payload: response.data})
     } catch (error) {
