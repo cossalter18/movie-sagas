@@ -12,12 +12,7 @@ class Edit extends Component {
         }
     }
 
-    componentDidMount(
-
-
-    )
-
-    
+   
     handleChange = (event) => {
         console.log('IN HANDLECHANGE');
         this.setState({
@@ -53,7 +48,7 @@ class Edit extends Component {
                     {this.props.reduxState.details.map((movie) => {
                         return (
                             <div key={movie.id}>
-                                <img src={movie.poster} />
+                                <img src={movie.poster} alt={movie.title}/>
                             </div>
                         )// end map return
                     }// end return;

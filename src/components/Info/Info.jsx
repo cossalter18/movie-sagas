@@ -5,16 +5,18 @@ import {withRouter} from 'react-router'
 
 class Info extends Component {
 
+    //used to fire the get details function
     componentDidMount() {
         console.log('in Info COMPONENTDIDMOUT');
         this.getDetails()
     }
 
+    //take us back to MovieList page
     handleClick=()=>{
         // console.log("handle click info button");
         this.props.history.push('/')
     }
-
+    //takes us to the movie edit page
     handleEdit = (id) => {
         console.log('button clicked in handle edit');
         this.props.history.push('/edit')
@@ -22,7 +24,7 @@ class Info extends Component {
    
 
     getDetails = () =>{
-        console.log(this.props.match.params.id)
+        console.log("IN GET DETAILS INFO.JSX", this.props.match.params.id)
         this.props.dispatch({type:'GET_DETAILS', payload: this.props.match.params.id})
     }
 
@@ -35,7 +37,7 @@ class Info extends Component {
                 {this.props.reduxState.details.map((movie) => {
                     return (
                         <div key={movie.id}>
-                            <img src={movie.poster}/>
+                            <img src={movie.poster} alt={movie.title}/>
                             <h2>{movie.title}</h2>
                             <h3>Description</h3>
                             <p>{movie.description}</p>

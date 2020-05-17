@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
-import { HashRouter, Route, Link } from 'react-router-dom'
+import { HashRouter, Route} from 'react-router-dom'
 
 //import components for HashRouter
 import Info from '../Info/Info'
