@@ -13,13 +13,12 @@ class Edit extends Component {
     }
 
    
-    handleChange = (event) => {
+    handleChange = (event, property) => {
         console.log('IN HANDLECHANGE');
         this.setState({
             movie: {
                 ...this.state.movie,
-                [event.target.title]: event.target.value,
-                [event.target.description]: event.target.value
+                [property]: event.target.value
             }
         })
     }
@@ -41,6 +40,8 @@ class Edit extends Component {
         this.props.history.push(`/`)
     }
     render() {
+        console.log("!!!!!!!!!!!!!!!!!!!!", this.state.movie);
+        
         return (
             <>
                 <div className="info">
